@@ -35,6 +35,7 @@ var family = ['Tyler', 'Jordyn', 'Ryan', 'Chelsey', 'Ireland'];
       alert(arr[i]);
     }
   }
+  
 
 //Next problem
 
@@ -72,12 +73,31 @@ function evenFinder(arr){
 
 var numbersArray = [1,2,34,54,55,34,32,11,19,17,54,66,13];
 //Write a function called divider that is given one argument, numbersArray.
-//Have divider return an Array with the first item in the array being the evens array (all the even values from numbersArray) and the second item in the Array being the odds array (all the odd values from numbersArray).
+//Have divider return an Array with the first item in the array being the evens array (all the even values from numbersArray) 
+//and the second item in the Array being the odds array (all the odd values from numbersArray).
 
 
 
   //Code Here
+function divider(arr){
 
+  var ans = [];
+  var evens = [];
+  var odds = [];
+
+  for (var i in arr){
+    if (arr[i] % 2 === 0){
+      evens.push(arr[i]);
+    }else{
+      odds.push(arr[i]);
+    }
+  }
+
+  ans[0] = evens;
+  ans[1] = odds;
+  return ans;
+
+}
 
 //Next Problem
 
@@ -86,13 +106,24 @@ var getRandomArbitrary = function() {
   return Math.floor(Math.random() * 30);
 };
 // var numbers = [0,3,4,5,6,7,9,14,17,24,25,26,29,30];
-//Above you're given a function that will return a random number between 0 and 30.  There is also a commented out array full of numbers to help you visualize what your function will be receiving.
+//Above you're given a function that will return a random number between 0 and 30.  There is also a commented out array full of 
+//numbers to help you visualize what your function will be receiving.
 
-// Your job is to write a function named finder that will get a random number (by invoking getRandomArbitrary), then loop through the array (that will be passed in as a parameter) to see if that random number is in the array. If it is, return true, if it's not, return false
+// Your job is to write a function named finder that will get a random number (by invoking getRandomArbitrary), 
+//then loop through the array (that will be passed in as a parameter) to see if that random number is in the array. 
+//If it is, return true, if it's not, return false
 
   //Code Here
+function finder(arr){
 
-  //Code Here
+  var num = getRandomArbitrary();
+  if (arr.includes(num)){
+    return true;
+  }else{
+    return false;
+  }
+
+}
 
 
 //Next problem
@@ -103,7 +134,9 @@ var str = 'this is my sentence';
 //Write a function called reverse that takes a given str as it's only argument and returns that string after it's been reversed
 
   //Code Here
-
+function reverse(str){
+  return str.split('').reverse().join('');
+}
 
 //Next Problem
 
@@ -114,17 +147,38 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
   and adding new items to our list.
 
   Write a function called removeItem that is given two arguments, the first is myGroceryList, and the
-  second is an item to remove from myGroceryList. If the second argument (or the item to add or remove) matches an item in myGroceryList,
+  second is an item to remove from myGroceryList. If the second argument 
+  (or the item to add or remove) matches an item in myGroceryList,
   remove that item from the your grocery list and return the new, updated grocery list.
 
   Once you do that, write another function called addItem that is given two arguments, the first is myGroceryList
   and the second is an item to add to your grocery list. In addItem add the item you passed in to
   myGroceryList then return the new, updated grocery list.
 
-  In both the removeItem function and the addItem function, you will also need to check for valid aurguments. Specrunner will try to call your functions without passing in valid aurguments. When this happens, you will need to respond by returning an empty array.
+  In both the removeItem function and the addItem function, you will also need to check for valid aurguments. 
+  Specrunner will try to call your functions without passing in valid aurguments. When this happens, you will 
+  need to respond by returning an empty array.
 */
 
   //Code Here
+  function removeItem(arr, item){
+    var index = arr.indexOf(item);
+
+    if (index >= 0){
+      arr.splice(index, 1);
+    }
+
+    return arr;
+  }
+
+
+  function addItem(arr, item){
+    //var index = arr.indexOf(item);
+
+    arr.push(item);
+
+    return arr;
+  }
 
 //removeItem(myGroceryList, 'chips') --> ['pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 //addItem(myGroceryList, 'Jerky') --> ['pizza', 'hotpockets', 'MtnDew', 'corndogs', 'Jerky'];
@@ -139,7 +193,15 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 
   //Code Here
 
+function maker(){
+  var arr = [];
 
+for (var i = 1; i <= 215; i ++){
+  arr.push(i);
+}
+
+return arr;
+}
 
 //Next Problem
 
@@ -149,7 +211,15 @@ var numbers = [5, '9', 16, 19, '25', '34', 48];
 //array after adding ten to each item in numbers. *Verify your answer is correct. --> [15, 19, 26, 29, 35, 44, 58]
 
   //Code Here
+function addTen(arr){
 
+for (var i in arr){
+  arr[i] = Number(arr[i]) + 10;
+}
+
+return arr;
+
+}
 
 
 //Next Problem
@@ -170,7 +240,13 @@ for(var i = 0; i < num2; i++){
 //Write a function called 'longer' that is given arr1 and arr2 as it's only arguments. Return the array which is longest.
 
   //Code Here
-
+function longer(arr1, arr2){
+  if (arr1.length > arr2.length){
+    return arr1;
+  }else{
+    return arr2;
+  }
+}
 
 /*As a continuation of the previous problem, write another function called 'both'.
   Your 'both' function will be given two arguments, arr1 and arr2 (from the previous example).
